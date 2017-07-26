@@ -49,7 +49,7 @@ class MecanumTeleop:
         # x axis linear velocity
         twist.linear.x = self.maxLinearVelocity * vLinear * cos(Heading)
         # y axis linear velocity
-        twist.linear.y = self.maxLinearVelocity * vLinear * sin(Heading)
+        twist.linear.y = self.maxLinearVelocity * vLinear * sin(Heading) * -1
 
         # YAW axis rotational velocity
         twist.angular.z = self.maxAngularVelocity * safety * (joy.axes[2]) / 2.0
@@ -68,4 +68,4 @@ if __name__ == '__main__':
 
     except rospy.ROSInterruptException:
         pass
-                
+
